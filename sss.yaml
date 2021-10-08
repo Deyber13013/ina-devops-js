@@ -1,0 +1,28 @@
+name: CI-JAVASCRIPT
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflows_dispatch
+
+jobs:
+  build_test:
+    runs_on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/chekout@v2
+      - name: Instalar node JS
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: instalar paquetes rpm
+        run: |
+          npm
+          npm ci
+      - name: compilar y ejecutar
+        run: |
+          npm run build
+          npm run test
