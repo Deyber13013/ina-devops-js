@@ -20,7 +20,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: instalar paquetes rpm
         run: |
-          npm
+          npm install
           npm ci
       - name: compilar y ejecutar
         run: |
