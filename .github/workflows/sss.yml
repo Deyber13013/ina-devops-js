@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/chekout@v2
       - name: Instalar node JS
-      - uses: actions/setup-node@master
+        uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
       - name: instalar paquetes rpm
